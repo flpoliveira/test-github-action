@@ -1,4 +1,4 @@
-name: Deploy Release Channel
+name: Deploy Release Channel (OTA)
 
 on:
   workflow_dispatch:
@@ -30,4 +30,4 @@ jobs:
         run: npm install
 
       - name: 🚀 Build app
-        run: eas build --non-interactive
+        run: expo publish --release-channel ${{ github.event.inputs.release_channel }}
